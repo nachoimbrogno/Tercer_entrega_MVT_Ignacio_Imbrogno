@@ -5,6 +5,7 @@ from Podcast import views
 
 urlpatterns = [
     path('', views.mi_vista, name='inicio'),
+    path('cargar-programa/', views.carga_formulario, name='carga_formulario'),
     # path('mostrar-fecha/', views.mostrar_fecha, name='mostrar_fecha'),
     # path('saludar/<str:nombre>/<str:apellido>', views.saludar, name='saludar' ),
     # path('mi-primer-template/', views.mi_primer_template, name='mi_primer_template'),
