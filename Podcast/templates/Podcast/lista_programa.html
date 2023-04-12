@@ -1,0 +1,33 @@
+{% extends 'padre.html' %}
+
+{% block title_head%}
+<title>Programas</title>
+{% endblock title_head%}
+
+{% block h1_header%}
+<h1>Listado de programas de podcast</h1>
+{% endblock h1_header%}
+
+
+{% block contenido%}
+<!--creo el tag para el formulario de la busqueda-->
+<p>
+    <form action={% url 'lista_programas'%} method="get">
+        {{formulario}}
+        <button>Buscar</button>
+    </form>
+</p>
+
+<!--el if es para darle un mensaje por pantalla, si animales tiene algo cargado lo muestra pero sino avisa 
+    que no hay nada-->
+{%if programas%}
+    <!-- creo un for para poder recorrer toda la lista de animales y poder mostrarlo de forma de lista-->
+    {% for programa in programas%}
+    <li>
+        Nombre: {{programa.nombre}} -- Genero: {{programa.genero}} -- Idioma: {{programa.idioma}} -- Productora: {{programa.genero}}
+    </li>
+    {% endfor%}
+{%else%}
+    <h2> No hay programas cargados!!</h2>
+{% endif%}
+{% endblock contenido%}

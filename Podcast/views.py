@@ -1,8 +1,9 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.template import Template, Context, loader
 from Podcast.models import Programa
-from Podcast.forms import CreacionProgramaFormulario
+from Podcast.forms import CreacionProgramaFormulario, BuscarPrograma
+
 
 # Create your views here.
 
@@ -27,16 +28,16 @@ def carga_formulario(request):
     formulario = CreacionProgramaFormulario()
     return render(request, 'Podcast/carga_formulario.html', {'formulario': formulario})
 
-# def lista_programas(request):
-#     #el request.GET es como un diccionario y puedo obtenet la informacion que esta en una llave y sino none
-#     nombre_a_buscar = request.GET.get('nombre', None)
-#     #Ahora sí, nombre a buscar no esta vacio que devuelva todo, pero si mandan otro filtro los que tiene 
-#     #nombre a buscar
-#     if nombre_a_buscar:
-#         #Busco los animales que yo pongo en nombre a buscar con el get. Lo que hace icontains es buscar los 
-#         #que contienen lo que yo quiero buscar y no lo exacto
-#         programa = Programa.objects.filter(nombre__icontains=nombre_a_buscar)
-#     else:
-#         programa = Programa.objects.all()
-#     formulario_busqueda = BuscarAnimal()
-#     return render(request, 'inicio/lista_animales.html', {'animales': animales, 'formulario': formulario_busqueda})
+def lista_programas(request):
+    #el request.GET es como un diccionario y puedo obtenet la informacion que esta en una llave y sino none
+    programa_a_buscar = request.GET.get('nombre', None)
+    #Ahora sí, nombre a buscar no esta vacio que devuelva todo, pero si mandan otro filtro los que tiene 
+    #nombre a buscar
+    if programa_a_buscar:
+        #Busco los animales que yo pongo en nombre a buscar con el get. Lo que hace icontains es buscar los 
+        #que contienen lo que yo quiero buscar y no lo exacto
+        programas = Programa.objects.filter(nombre__icontains=programa_a_buscar)
+    else:
+        programas = Programa.objects.all()
+    formulario_busqueda = BuscarPrograma()
+    return render(request, 'Podcast/lista_programa.html', {'programas': programas, 'formulario': formulario_busqueda})

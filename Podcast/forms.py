@@ -6,6 +6,6 @@ class CreacionProgramaFormulario(forms.Form):
     idioma = forms.CharField(max_length=30)
     productora = forms.CharField(max_length=30)
 
-# class BuscarAnimal(forms.Form):
-#     #Solo buscara por nombre , el required = False me permite que no complete nada en el campo al moento de buscar.
-#     nombre = forms.CharField(max_length=20, required=False)
+class BuscarPrograma(forms.Form):
+    #Solo buscara por nombre , el required = False me permite que no complete nada en el campo al moento de buscar.
+    nombre = forms.CharField(max_length=20, required=False)
