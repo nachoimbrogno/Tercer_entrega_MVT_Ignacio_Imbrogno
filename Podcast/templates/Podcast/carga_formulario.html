@@ -1,19 +1,18 @@
-<!-- Version de template 2 utilizando formilarios manuales - NO LO DE DJANGO POR DEFECTO-->
+<!-- HTML destinado a poblar la base de datos (carga mediante formulario de Django)-->
 {% extends 'padre.html' %}
 
 {% block title_head%}
-<title>Crear Prograa</title>
+<title>Cargar Programa</title>
 {% endblock title_head%}
 
 {% block h1_header%}
-<h1>Crear Programa</h1>
+<h1>Cargar un Programa</h1>
 {% endblock h1_header%}
 
 
 {% block contenido%}
 <form action={% url 'carga_formulario' %} method="POST">
     {% csrf_token %}
-    <!--El table es para que al momento de mostrarlo en la pagina lo haga como una tabla (uno abajo del otro)-->
     <table>
         {{formulario}}
     </table>

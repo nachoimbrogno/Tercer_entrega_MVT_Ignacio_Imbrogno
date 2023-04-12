@@ -10,4 +10,4 @@ class Programa(models.Model):
     
     #Creo el str para formatear la salida.
     def __str__(self):
-        return f'El podcast {self.nombre} de la productora {self.productora} de genero de {self.genero} en {self.idioma}'
+        return f'Podcast: {self.nombre} de la productora: {self.productora} de genero: {self.genero} en: {self.idioma}'
