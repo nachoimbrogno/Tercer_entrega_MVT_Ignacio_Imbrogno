@@ -29,3 +29,8 @@ def lista_programas(request):
         programas = Programa.objects.all()
     formulario_busqueda = BuscarPrograma()
     return render(request, 'Podcast/lista_programa.html', {'programas': programas, 'formulario': formulario_busqueda})
+
+#vista sobre mi
+def sobre_mi(request):
+    return render(request, 'Podcast/sobre_mi.html')
+

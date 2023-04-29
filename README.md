@@ -26,3 +26,5 @@ Luego los templates index.html(el inicio de la aplicacion PODCAST), lista_progra
 Tambien se creó el usuario administrador Admin (sí, con la A) y la password es admin. 
 Luego se importó el modelos para poder manejarlo desde el portal de administrador.
 Por ultimo se generó el metodo __str__ para darle formato al modelo que se muestra. 
+
+Se  agregó el boto Sobre Mi en la pagina.
