@@ -19,7 +19,6 @@ from usuarios.models import InformacionExtra
 def login(request):
 	return render(request, 'usuarios/login.html')
 
-
 #Vista para la autenticacion de usuarios
 def login(request):
     if request.method == "POST":
