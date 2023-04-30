@@ -1,6 +1,5 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render
 from Podcast.models import Programa
-from Podcast.forms import CreacionProgramaFormulario, BuscarPrograma
 #Modulos para poder usar CBV
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic.detail import DetailView
@@ -9,7 +8,6 @@ from django.views.generic.list import ListView
 from django.urls import reverse_lazy
 #Importo para poder usar Mixims
 from django.contrib.auth.mixins import LoginRequiredMixin
-
 
 # Create your views here.
 
@@ -20,19 +18,6 @@ def mi_vista(request):
 #vista sobre mi
 def sobre_mi(request):
     return render(request, 'Podcast/sobre_mi.html')
-
-        
-
-#Vista destinada a ver y buscar datos de la base de datos (por vista clasica para poder usar decoradores).
-# def lista_programas(request):
-#     programa_a_buscar = request.GET.get('nombre', None)
-#     if programa_a_buscar:
-#         programas = Programa.objects.filter(nombre__icontains=programa_a_buscar)
-#     else:
-#         programas = Programa.objects.all()
-#     formulario_busqueda = BuscarPrograma()
-#     return render(request, 'Podcast/lista_programa.html', {'programas': programas, 'formulario': formulario_busqueda})
-
 #Clase para Crear Programa con CBV. Le pongo mixims para que autentique si quiere borrar
 class CrearPrograma(LoginRequiredMixin, CreateView):
     model = Programa

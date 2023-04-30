@@ -15,7 +15,7 @@
     {% for programa in object_list%}
     <li>
         <a class="navbar-brand" href="{% url 'mostrar_programa' programa.id %}">{{ programa }}</a>
-        <button>
+    <button>
         <a class="navbar-brand" href="{% url 'modificar_programa' programa.id %}">Modificar</a>
     </button>
     <button>

@@ -15,6 +15,7 @@ objeto completo(animal en este caso)-->
 <form action={% url 'modificar_programa' programa.id %} method="POST">
     {% csrf_token %}
     <table>
+        {{form.media}}
         {{form}}
     </table>
     <button>Modificar</button>

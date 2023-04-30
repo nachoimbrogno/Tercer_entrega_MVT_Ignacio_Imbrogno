@@ -19,7 +19,7 @@ objeto completo(animal en este caso)-->
     <li>Idioma: {{programa.idioma}}</li>
     <li>Fecha de Lanzamiento: {{programa.fecha_lanzamiento}}</li>
     <li>Productora: {{programa.productora}}</li>
-    <li>Descripcion: {{programa.descripcion}}</li>
+    <li>Descripcion: {{programa.descripcion  | safe}}</li>
 </ul>
 <button>
     <a class="navbar-brand" href="{% url 'modificar_programa' programa.id %}">Modificar</a>
