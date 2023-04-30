@@ -1,0 +1,24 @@
+{% extends 'padre.html' %}
+
+{% block title_head %}
+<title>Inicio de sesion</title>
+{% endblock title_head %}
+
+{% block h1_header %}
+<h1>Inicio de sesion</h1>
+{% endblock h1_header %}
+
+{% block contenido%}
+<!--Por si da error de login-->
+{%if formulario.errors %}
+    <p style="color: red">Error de Login</p>
+{%endif%}
+<!--El formulario con la carga de usuario.-->
+<form action="{% url 'login' %}" method="POST">
+	{% csrf_token %}
+	<table>
+		{{formulario}}
+	<table>
+	<button>Iniciar Sesion</button>
+</form>
+{% endblock contenido%}
