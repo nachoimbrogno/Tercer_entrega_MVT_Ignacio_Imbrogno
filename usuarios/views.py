@@ -13,6 +13,8 @@ from django.urls import reverse_lazy
 from django.contrib.auth.decorators import login_required
 #Importo para poder usar la clase basada en vista para modificar la contraaseña
 from django.contrib.auth.views import PasswordChangeView
+#Importo el modelo creado
+from usuarios.models import InformacionExtra
 
 # Create your views here.
 
@@ -50,14 +52,18 @@ def registro(request):
 #Vista para la moficicacion de los datos del usuario
 @login_required
 def editar_perfil(request):
+    informacion_extra, creado = InformacionExtra.objects.get_or_create(user=request.user)
     if request.method == "POST":
-        formulario = EdicionDatosUsuario(request.POST, instance=request.user)
+        formulario = EdicionDatosUsuario(request.POST, request.FILES, instance=request.user)
         if formulario.is_valid():
+            if formulario.is_valid():
+                request.user.informacionextra.avatar = formulario.cleaned_data.get('avatar')
+            request.user.informacionextra.save()
             formulario.save()
             return redirect ('inicio')
         else:
             return render(request, 'usuarios/editar_perfil.html',{'formulario':formulario})
-    formulario = EdicionDatosUsuario(instance=request.user)
+    formulario = EdicionDatosUsuario(initial={'avatar':request.user.informacionextra.avatar},instance=request.user)
     return render(request, 'usuarios/editar_perfil.html', {'formulario': formulario})
 
 #Clase basa en vista parra modificar la contraseña, por eso que herede PasswordChangeView

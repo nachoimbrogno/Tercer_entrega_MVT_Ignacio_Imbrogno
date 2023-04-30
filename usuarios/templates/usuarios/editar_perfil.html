@@ -10,10 +10,12 @@
 
 {% block contenido%}
 
+
 {%if formulario.errors %}
 <p style="color: red"> Hay errores</p>
 {%endif%}
-<form action='' method="POST">
+<!--Para poder mostrar el avatar tengo que agregar esto-->
+    <form action='' method="POST" enctype='multipart/form-data'>
     {% csrf_token %}
     <table>
         {{formulario}}

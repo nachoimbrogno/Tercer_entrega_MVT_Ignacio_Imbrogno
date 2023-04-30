@@ -21,6 +21,8 @@ class EdicionDatosUsuario(UserChangeForm):
     email = forms.EmailField()
     first_name = forms.CharField(label = 'Nombre', max_length =20)
     last_name = forms.CharField(label = 'Apellido', max_length=20)
+    #utilizó el avatar creado en el modelo de la app usuarios.
+    avatar = forms.ImageField(required=False)
     class Meta:
         model = User
-        fields = ['email', 'first_name', 'last_name']
+        fields = ['email', 'first_name', 'last_name','avatar']

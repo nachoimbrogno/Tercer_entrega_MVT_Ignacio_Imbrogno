@@ -25,6 +25,10 @@
                 <a class="navbar-brand" href="{% url 'inicio' %}">Inicio</a>
                 <a class="navbar-brand" href="{% url 'lista_programas' %}">Programas</a>
                 {% if request.user.is_authenticated  %}
+                    <!--para mostrar el avatar por pantalla si esta logueado-->
+                    {% if request.user.informacionextra.avatar %}
+                        <img src={{request.user.informacionextra.avatar.url}} alt="" height="40px">
+                    {% endif %}
                     <a href={% url 'editar_perfil'%}>{{request.user.username}}</a>
                     <a class="btn btn-primary" href="{% url 'logout' %}">Cerrar Sesion</a>
                 {%else%}

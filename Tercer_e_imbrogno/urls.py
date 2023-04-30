@@ -16,9 +16,14 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-
+#importo las  configuraciones que hice en el seting para las imagens.
+from django.conf import settings
+from django.conf.urls.static import static
 urlpatterns = [
     path('Podcast/',include('Podcast.urls')),
     path('usuarios/',include('usuarios.urls')),
     path('admin/', admin.site.urls),
 ]
+
+#Para utilizar la carpea media
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
