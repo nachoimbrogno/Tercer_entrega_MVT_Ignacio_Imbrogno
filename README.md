@@ -18,15 +18,15 @@ Esa sera la pagina inicial.De ahi hay dos link:
     -Descripcion.
 Una vez cargado el progrma los llevará a la vista de "Ver Programa" desde la pagina o "lista_programa" desde views 
 
-2 - Ver Programa: Destinado a consultar los programas cargados mediante formulario de Django. La consulta se hace por nombre de podcast.
+desde la pagina principal se puede ver
+Inicio
+Programas: Desde el podras dar de alta, consulta, eliminar y modificar progrmas de pdcast
+Cerrar Sesion - Una vez logueado te deslogueas desde ahi
+Iniciar Sesion - Para iniciar sesion
+Registrarse - Para crear un usuario nuevo
 
-El programa tambien cuenta con la vista mi_vista que es la inicial de la aplicacion PODCAST.
 
-En cuanto a los templates, el html padre es el padre.html que es el base para todos los otro templates.
-Luego los templates index.html(el inicio de la aplicacion PODCAST), lista_programa.html(destinado a mostrar y buscar los podcast cargados en la base) y carga_formulario.html (destinado a cargar la base de datos),sobre_mi.html (destinado a contar sobre mi) TODO ESTOS HEREDAN LAS CONFIGURACION DE padre.html.
 
-Tambien se creó el usuario administrador Admin (sí, con la A) y la password es admin. 
-Luego se importó el modelos para poder manejarlo desde el portal de administrador.
-Por ultimo se generó el metodo __str__ para darle formato al modelo que se muestra. 
+Abajo a al izquierda estara un boton de sobre Mi con informacion mia y del podcast
 
-Se  agregó el boto Sobre Mi en la pagina.
+Una vez logueado podras consultar los datos del usuario y modificar tantos sus datos como su contraseña y cargar un avatar.
