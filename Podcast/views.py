@@ -9,16 +9,16 @@ def mi_vista(request):
     return render(request,'Podcast/index.html',)
 
 #Vista destinada a poblar la base de datos.
-def carga_formulario(request):
+def crear_programa(request):
     if request.method == 'POST':
         formulario = CreacionProgramaFormulario(request.POST)
         if formulario.is_valid():
             datos_correctos = formulario.cleaned_data
-            programa = Programa(nombre= datos_correctos ['nombre'], genero= datos_correctos ['genero'], idioma= datos_correctos ['idioma'], productora= datos_correctos ['productora'])
+            programa = Programa(nombre= datos_correctos ['nombre'], genero= datos_correctos ['genero'], idioma= datos_correctos ['idioma'], fecha_lanzamiento= datos_correctos ['fecha_lanzamiento'], productora= datos_correctos ['productora'],descripcion= datos_correctos ['descripcion'])
             programa.save()
             return redirect('lista_programas')
     formulario = CreacionProgramaFormulario()
-    return render(request, 'Podcast/carga_formulario.html', {'formulario': formulario})
+    return render(request, 'Podcast/crear_programa.html', {'formulario': formulario})
 
 #Vista destinada a ver y buscar datos de la base de datos.
 def lista_programas(request):

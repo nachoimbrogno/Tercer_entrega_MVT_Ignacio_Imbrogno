@@ -10,7 +10,7 @@
 
 
 {% block contenido%}
-
+<a class="navbar-brand" href="{% url 'crear_programa'%}"> Crear Programa</a>
 <p>
     <form action={% url 'lista_programas'%} method="get">
         {{formulario}}
