@@ -5,4 +5,5 @@ from django.contrib.auth.models import User
 #Creo el modelo para utilizar el avatar
 class InformacionExtra(models.Model):
     avatar = models.ImageField(upload_to='avatares', null=True, blank=True)
+    descripcion = models.TextField()
     user = models.OneToOneField(User, on_delete=models.CASCADE)

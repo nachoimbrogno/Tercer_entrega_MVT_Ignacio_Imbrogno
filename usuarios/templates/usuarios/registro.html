@@ -12,7 +12,7 @@
 
 <!--Si hay error en la carga de los datos del usuario mostrará esto:-->
 {%if formulario.errors %}
-<p style="color: red"> Hay errores</p>
+<p style="color: red"> Error al registrar el usuario</p>
 {%endif%}
 <!--El formulario con la carga de usuario.-->
 <form action="{% url 'registro' %}" method="POST">

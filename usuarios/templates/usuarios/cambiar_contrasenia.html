@@ -13,7 +13,7 @@
 
 <!--Si hay error en la carga de los datos del usuario mostrará esto:-->
 {%if formulario.errors %}
-<p style="color: red"> Hay errores</p>
+<p style="color: red"> No se pudo modifical la contraseña</p>
 {%endif%}
 <!--El formulario con la carga de usuario.-->
 <form action="{% url 'cambio_contrasenia' %}" method="POST">
