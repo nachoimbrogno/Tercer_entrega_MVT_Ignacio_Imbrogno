@@ -14,7 +14,7 @@
 <form action={% url 'crear_programa' %} method="POST">
     {% csrf_token %}
     <table>
-        {{formulario}}
+        {{form}}
     </table>
     <button>Crear</button>
 </form>

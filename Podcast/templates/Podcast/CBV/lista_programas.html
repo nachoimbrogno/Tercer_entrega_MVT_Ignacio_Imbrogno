@@ -1,0 +1,29 @@
+{% extends 'padre.html' %}
+
+{% block title_head%}
+<title>Programas</title>
+{% endblock title_head%}
+
+{% block h1_header%}
+<h1>Listado de programas</h1>
+{% endblock h1_header%}
+
+
+{% block contenido%}
+<a class="navbar-brand" href="{% url 'crear_programa'%}"> Crear Programa</a>
+{%if object_list%}
+    {% for programa in object_list%}
+    <li>
+        <a class="navbar-brand" href="{% url 'mostrar_programa' programa.id %}">{{ programa }}</a>
+        <button>
+        <a class="navbar-brand" href="{% url 'modificar_programa' programa.id %}">Modificar</a>
+    </button>
+    <button>
+    <a class="navbar-brand" href="{% url 'eliminar_programa' programa.id %}">Eliminar</a>
+    </button>
+    </li>
+    {% endfor%}
+{%else%}
+    <h2> No hay datos sobre Podcast</h2>
+{% endif%}
+{% endblock contenido%}

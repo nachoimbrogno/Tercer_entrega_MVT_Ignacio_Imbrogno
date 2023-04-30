@@ -12,4 +12,5 @@ class Programa(models.Model):
     
     #Creo el str para formatear la salida.
     def __str__(self):
-        return f'El podcast: {self.nombre} de la productora: {self.productora} lanzado : {self.fecha}'
+        #Lo uestro asi para que aparezca asi al consultar el podcast
+        return f'{self.nombre} -- {self.productora} '
